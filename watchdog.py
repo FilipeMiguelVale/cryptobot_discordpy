@@ -113,9 +113,9 @@ class Watchdog(commands.Cog):
 
     @commands.command(description='Insert Watchdog timer currencie,type,value',brief="currencie ,value")
     async def trigger(self, ctx, currencie, value):
-        # await ctx.message.delete()
+        await ctx.message.delete()
         currencie = currencie.upper()
-        value = int(value.replace(",", "."))
+        value = float(value.replace(",", "."))
         # add timmer to timmers
         price = client.get_spot_price(currency_pair=currencie + "-USD")
         p = float(price["amount"])
@@ -133,7 +133,7 @@ class Watchdog(commands.Cog):
     @commands.command(description='Insert Watchdog timer with percentage currencie, value',
                       brief="currencie ,percentage")
     async def triggerp(self, ctx, currencie, value):
-        # await ctx.message.delete()
+        await ctx.message.delete()
         currencie = currencie.upper()
         value = float(value.replace(",", "."))
         # add timmer to timmers
