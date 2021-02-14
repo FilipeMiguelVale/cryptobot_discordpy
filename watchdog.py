@@ -98,6 +98,7 @@ class Watchdog(commands.Cog):
     @commands.command(description='Show timmers in use')
     async def del_timmer(self, ctx,name,id):
         temp = {}
+        name = name.upper()
         for currencie, timmers in self.timmers.items():
             if currencie == name:
                 for i, timmer in enumerate(timmers):
